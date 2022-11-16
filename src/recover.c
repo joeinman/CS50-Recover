@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     while (fread(buffer, 1, BLOCK_SIZE, input_file) == BLOCK_SIZE)
     {
         // If First 4 Bytes Of Buffer Match JPEG Signature
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0b11110000) == 0b11100000)
         {
             // Close Previous JPEG File
             if (i != 0)
