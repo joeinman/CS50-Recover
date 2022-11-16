@@ -54,15 +54,15 @@ int main(int argc, char *argv[])
             // Close Previous JPEG File
             if (i != 0)
                 fclose(output_file);
-            
-            // Create Next JPEG File
-            sprintf(output_filename, "%03i.jpg", i);
-            output_file = fopen(output_filename, "w");
 
+            // Create Next JPEG File
+            snprintf(output_filename, sizeof(output_filename), "%03i.jpg", i);
+            output_file = fopen(output_filename, "w");
+            
             // Increment Iteration Counter
             i++;
         }
-        
+
         // Write Current Buffer To Current JPEG File
         if (i != 0)
             fwrite(&buffer, BLOCK_SIZE, 1, output_file);
