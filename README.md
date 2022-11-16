@@ -12,5 +12,5 @@ make
 ## **To Run:**
 
 ```
-./Recover [Path To File]
+./recover [Path To File]
 ```
